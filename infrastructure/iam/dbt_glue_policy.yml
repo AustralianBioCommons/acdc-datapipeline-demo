@@ -104,7 +104,7 @@
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::acdc-dbt-test-raw"
+                "arn:aws:s3:::acdc-dbt-test-raw/*"
             ],
             "Effect": "Allow"
         }
