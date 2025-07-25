@@ -4,7 +4,7 @@ dbt_acdc_demo:
     dev:
       type: glue
       query-comment: "This is a glue dbt example"
-      role_arn: arn:aws:iam::026090528544:role/GlueInteractiveSessionClientRole-dbt-CLI-demo
+      role_arn: arn:aws:iam::026090528544:role/AwsGlueSessionUserRestrictedServiceRole-dbtGlueExecutor
       region: ap-southeast-2
       workers: 2
       worker_type: G.1X
