@@ -1,0 +1,11 @@
+# models/staging/_sources.yml
+
+version: 2
+
+sources:
+  - name: raw_data  # A logical name for your source data (e.g., from the 'raw' Glue database)
+    description: "Raw data from institute uploads, cataloged by AWS Glue."
+    
+    tables:
+      - name: patient_info # This MUST exactly match the table name in your Glue Catalog
+        description: "Raw patient data with inconsistent sex column values."
