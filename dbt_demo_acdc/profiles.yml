@@ -9,7 +9,7 @@ dbt_acdc_demo:
       workers: 2
       worker_type: G.1X
       idle_timeout: 10
-      schema: "glue-db-acdc-dbt-test-clean"
+      schema: "glue_db_acdc_dbt_test_clean"
       session_provisioning_timeout_in_seconds: 120
       location: "s3://acdc-dbt-test-clean/dbt/"
       glue_session_reuse: true
