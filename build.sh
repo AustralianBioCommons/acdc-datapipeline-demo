@@ -2,7 +2,9 @@
 
 python3 -m venv env
 source env/bin/activate
-pip install dbt-core dbt-glue
+pip install --upgrade pip 
+pip install dbt-core==1.9.4
+pip install dbt-glue==1.9.4
 dbt init dbt_demo_acdc
 
 
