@@ -1,0 +1,14 @@
+dbt_acdc_demo:
+  target: dev
+  outputs:
+    dev:
+      type: glue
+      query-comment: "This is a glue dbt example"
+      role_arn: arn:aws:iam::1234567890:role/GlueInteractiveSessionRole
+      region: us-east-1
+      workers: 2
+      worker_type: G.1X
+      idle_timeout: 10
+      schema: dbt_demo
+      session_provisioning_timeout_in_seconds: 120
+      location: "s3://dbt_demo_bucket/dbt_demo_data"
