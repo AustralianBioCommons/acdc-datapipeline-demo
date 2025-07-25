@@ -1,7 +1,7 @@
 patient_id,sex,medication,age
 A004,1,,21
 A005,Male,,0
+A003,0,,214
 ,fem,statin,
 A001,M,,
 A002,F,,32
-A003,0,,214

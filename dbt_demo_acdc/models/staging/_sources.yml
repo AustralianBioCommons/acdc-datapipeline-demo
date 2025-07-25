@@ -3,11 +3,11 @@
 version: 2
 
 sources:
-  - name: raw_data  # This is a logical name you can choose
+  - name: glue_db_acdc_dbt_test_raw  # This is a logical name you can choose
     description: "Raw data from institute uploads, cataloged by AWS Glue."
     
     # IMPORTANT: This line maps your logical source name to the real Glue database
-    database: glue-db-acdc-dbt-test-raw 
+    database: glue_db_acdc_dbt_test_raw 
 
     tables:
       # This MUST exactly match the table name in your Glue Catalog

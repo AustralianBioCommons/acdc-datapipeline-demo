@@ -1,12 +1,12 @@
 -- This model is materialized as a physical table by default
 -- It writes new Parquet files to your clean S3 bucket
 
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 -- This part *reads* data from an external source.
 with source as (
 
-    select * from {{ source('raw_data', 'patient_info') }}
+    select * from {{ source('glue_db_acdc_dbt_test_raw', 'patient_info') }}
 
 ),
 
