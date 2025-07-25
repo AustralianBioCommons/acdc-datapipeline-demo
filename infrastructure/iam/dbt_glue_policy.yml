@@ -94,7 +94,7 @@
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "arn:aws:s3:::acdc-dbt-test-clean"
+                "arn:aws:s3:::acdc-dbt-test-clean/*"
             ],
             "Effect": "Allow"
         },
