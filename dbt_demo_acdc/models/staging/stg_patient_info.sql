@@ -16,8 +16,8 @@ cleaned as (
     select
         patient_id,
         CASE
-            WHEN UPPER(TRIM(sex)) IN ('M', 'MALE', '0') THEN 'male'
-            WHEN UPPER(TRIM(sex)) IN ('F', 'FEMALE', '1', 'fem') THEN 'female'
+            WHEN UPPER(TRIM(sex)) IN ('M', 'MALE', '0', 'Male') THEN 'male'
+            WHEN UPPER(TRIM(sex)) IN ('F', 'FEMALE', '1', 'fem', 'Female') THEN 'female'
             ELSE NULL
         END AS sex
     from source
