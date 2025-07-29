@@ -2,14 +2,14 @@ dbt_acdc_demo:
   target: dev
   outputs:
     dev:
-      type: glue
-      query-comment: "This is a glue dbt example"
-      role_arn: arn:aws:iam::026090528544:role/AwsGlueSessionUserRestrictedServiceRole-dbtGlueExecutor
-      region: ap-southeast-2
-      workers: 2
-      worker_type: G.1X
-      idle_timeout: 10
-      schema: "glue_db_acdc_dbt_test_clean"
-      session_provisioning_timeout_in_seconds: 120
-      location: "s3://acdc-dbt-test-clean/releases/{{ var('release_version', 'default') }}/"
-      glue_session_reuse: true
+      type: athena
+      s3_staging_dir: s3://acdc-dbt-test-clean/athena_staging/
+      s3_data_naming: schema_table
+      s3_tmp_table_dir: s3://your_s3_bucket/temp/
+      region_name: ap-southeast-2
+      schema: glue_db_acdc_dbt_test_clean
+      database: AwsDataCatalog
+      threads: 4
+      aws_profile_name: dbt-glue
+      seed_s3_upload_args:
+        ACL: bucket-owner-full-control
