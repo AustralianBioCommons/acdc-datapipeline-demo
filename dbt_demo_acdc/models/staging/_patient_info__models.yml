@@ -5,7 +5,7 @@ version: 2
 models:
   - name: stg_patient_info
     description: "Cleans and standardizes raw patient information. Contains multiple versions."
-    latest_version: 3 # This declares that v1 is the current "production" version
+    latest_version: 4 # This declares that v1 is the current "production" version
 
     versions:
       - v: 1
@@ -31,5 +31,9 @@ models:
             tests:
               - accepted_values:
                   values: ['male', 'female']
+      - v: 4
+        columns:
+          - name: patient_id
+          - name: biological_sex_v2
 
 
