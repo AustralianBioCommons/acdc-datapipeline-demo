@@ -1,11 +1,10 @@
-dbt_acdc_demo:
+dbt_demo_acdc:
   target: dev
   outputs:
     dev:
       type: athena
       s3_staging_dir: s3://acdc-dbt-test-clean/athena_staging/
       s3_data_naming: schema_table
-      s3_tmp_table_dir: s3://your_s3_bucket/temp/
       region_name: ap-southeast-2
       schema: glue_db_acdc_dbt_test_clean
       database: AwsDataCatalog

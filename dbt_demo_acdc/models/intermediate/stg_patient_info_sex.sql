@@ -19,8 +19,13 @@ cleaned as (
             WHEN UPPER(TRIM(sex)) IN ('M', 'MALE', '0', 'Male') THEN 'male'
             WHEN UPPER(TRIM(sex)) IN ('F', 'FEMALE', '1', 'fem', 'Female') THEN 'female'
             ELSE NULL
-        END AS sex
+        END AS biological_sex,
+        '{{ var("release_version") }}' as release_version
     from source
+    where patient_id <> 'patient_id'
+        and sex <> 'sex'
+        and patient_id is not NULL
+        and patient_id <> ''
 )
 
 -- This selects the final, cleaned data to be saved.
