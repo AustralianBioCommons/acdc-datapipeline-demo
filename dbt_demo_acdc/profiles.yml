@@ -11,5 +11,5 @@ dbt_acdc_demo:
       idle_timeout: 10
       schema: "glue_db_acdc_dbt_test_clean"
       session_provisioning_timeout_in_seconds: 120
-      location: "s3://acdc-dbt-test-clean/dbt/"
+      location: "s3://acdc-dbt-test-clean/releases/{{ var('release_version', 'default') }}/"
       glue_session_reuse: true
