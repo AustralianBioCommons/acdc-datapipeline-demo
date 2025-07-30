@@ -14,7 +14,8 @@ WITH cleaned as (
             ELSE NULL
         END AS storage_medium,
         storage_date,
-        '{{ var("release_version") }}' as release_version
+        '{{ var("release_version") }}' as release_version,
+        '{{ var("run_id") }}' as run_id 
     from {{ ref('stg_sample_raw') }}
 )
 select * from cleaned

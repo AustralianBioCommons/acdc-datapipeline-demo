@@ -25,6 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   release_version: "v3.1"
+  run_id: "{{ run_started_at.strftime('%Y%m%d_%H%M%S') }}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -39,7 +40,7 @@ models:
       +schema: staging
     intermediate:
       materialized: table
-      partition_by: ["release_version"]
+      partitioned_by: ["release_version", "run_id"]
       +schema: intermediate
     # Config indicated by + and applies to all files under models/example/
     

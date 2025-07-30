@@ -1,7 +1,10 @@
 -- This model is materialized as a physical table by default
 -- It writes new Parquet files to your clean S3 bucket
 
-{{ config(materialized='table') }}
+{{ config(
+    materialized='incremental',
+    incremental_strategy='insert_overwrite'
+) }}
 
 
 -- This part *transforms* the data that was read.
@@ -11,7 +14,8 @@ with cleaned as (
         sample_id,
         storage_medium,
         storage_date,
-        '{{ var("release_version") }}' as release_version
+        '{{ var("release_version") }}' as release_version,
+        '{{ var("run_id") }}' as run_id
     from {{ ref('stg_sample_raw') }}
 )
 
