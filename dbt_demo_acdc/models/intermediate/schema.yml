@@ -1,0 +1,63 @@
+version: 2
+
+# business logic tests
+models:
+  - name: int_patient_info_sex
+    description: "Intermediate model for patient info with sex breakdown."
+    columns:
+      - name: patient_id
+        description: "Unique identifier for the patient."
+        tests:
+          - not_null
+          - unique
+      - name: sex
+        description: "Sex of the patient."
+        tests:
+          - not_null
+      # Add other columns as needed
+
+  - name: int_sample_storage
+    description: "Intermediate model for sample storage information."
+    columns:
+      - name: sample_id
+        description: "Unique identifier for the sample."
+        tests:
+          - not_null
+          - unique
+      - name: storage_location
+        description: "Location where the sample is stored."
+        tests:
+          - not_null
+      # Add other columns as needed
+
+  - name: int_sample_storage_v2
+    description: "Updated intermediate model for sample storage information."
+    columns:
+      - name: sample_id
+        description: "Unique identifier for the sample."
+        tests:
+          - not_null
+          - unique
+      - name: storage_location
+        description: "Location where the sample is stored."
+        tests:
+          - not_null
+      # Add other columns as needed
+
+  - name: int_sample_volume
+    description: "Intermediate model for sample volume calculations."
+    columns:
+      - name: sample_id
+        description: "Unique identifier for the sample."
+        tests:
+          - not_null
+          - unique
+      - name: volume
+        description: "Volume of the sample."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: volume <= 1000
+              config:
+                severity: warn
+                where: volume is not null
+      # Add other columns as needed

@@ -6,7 +6,7 @@ pip install --upgrade pip
 
 pip install dbt-core==1.9.4
 pip install dbt-athena==1.9.4
-
+pip install dbt-utils
 # pip install dbt-core==1.9.4
 # pip install dbt-glue==1.9.4
 # pip install dbt-athena==1.9.4
@@ -22,3 +22,8 @@ mkdir -p docs
 
 touch dbt_demo_acdc/profiles.yml
 touch infrastructure/requirements.txt
+
+source env/bin/activate
+cd dbt_demo_acdc
+dbt init
+dbt deps
