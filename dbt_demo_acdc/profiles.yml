@@ -6,7 +6,7 @@ dbt_demo_acdc:
       s3_staging_dir: s3://acdc-dbt-test-clean/athena_staging/
       s3_data_naming: schema_table
       region_name: ap-southeast-2
-      schema: glue_db_acdc_dbt_test_clean
+      schema: acdc_dbt_test_clean
       database: AwsDataCatalog
       threads: 4
       aws_profile_name: dbt-glue

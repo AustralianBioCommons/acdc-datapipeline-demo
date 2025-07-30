@@ -47,6 +47,8 @@
                 "arn:aws:glue:ap-southeast-2:026090528544:catalog",
                 "arn:aws:glue:ap-southeast-2:026090528544:table/glue_db_acdc_dbt_test_clean/*",
                 "arn:aws:glue:ap-southeast-2:026090528544:database/glue_db_acdc_dbt_test_clean",
+                "arn:aws:glue:ap-southeast-2:026090528544:database/acdc_dbt_test_clean",
+                "arn:aws:glue:ap-southeast-2:026090528544:table/acdc_dbt_test_clean/*",
                 "arn:aws:glue:ap-southeast-2:026090528544:database/acdc_dbt_test_clean_staging",
                 "arn:aws:glue:ap-southeast-2:026090528544:table/acdc_dbt_test_clean_staging/*",
                 "arn:aws:glue:ap-southeast-2:026090528544:database/acdc_dbt_test_clean_intermediate",

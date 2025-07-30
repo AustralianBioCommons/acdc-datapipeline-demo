@@ -7,7 +7,13 @@
 -- This part *transforms* the data that was read.
 with cleaned as (
 
-    select sample_id, patient_id, volume_ul,
+    select 
+        sample_id, 
+        patient_id, 
+        CASE
+            WHEN volume_ul = 0 THEN NULL
+            ELSE volume_ul
+        END AS volume_ul,
         '{{ var("release_version") }}' as release_version
     from {{ ref('stg_sample_raw') }}
 )
