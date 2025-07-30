@@ -1,4 +1,18 @@
-dbt_acdc_demo:
+dbt_demo_acdc:
+  target: dev
+  outputs:
+    dev:
+      type: athena
+      s3_staging_dir: s3://acdc-dbt-test-clean/athena_staging/
+      s3_data_naming: schema_table
+      region_name: ap-southeast-2
+      schema: acdc_dbt_test_clean
+      database: AwsDataCatalog
+      threads: 4
+      aws_profile_name: dbt-glue
+      seed_s3_upload_args:
+        ACL: bucket-owner-full-control
+glue:
   target: dev
   outputs:
     dev:

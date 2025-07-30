@@ -13,18 +13,8 @@ with source as (
 -- This part *transforms* the data that was read.
 cleaned as (
 
-    select
-        patient_id,
-        CASE
-            WHEN UPPER(TRIM(sex)) IN ('M', 'MALE', '0', 'Male') THEN 'male'
-            WHEN UPPER(TRIM(sex)) IN ('F', 'FEMALE', '1', 'fem', 'Female') THEN 'female'
-            ELSE NULL
-        END AS biological_sex_v2
+    select *
     from source
-    where patient_id <> 'patient_id'
-        and sex <> 'sex'
-        and patient_id is not NULL
-        and patient_id <> ''
 )
 
 -- This selects the final, cleaned data to be saved.

@@ -2,11 +2,11 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'dbt_acdc_demo'
+name: 'dbt_demo_acdc'
 version: '0.1.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_acdc_demo'
+profile: 'dbt_demo_acdc'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -24,7 +24,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 vars:
-  release_version: "v1.2"
+  release_version: "v3.1"
+  run_id: "{{ run_started_at.strftime('%Y%m%d_%H%M%S') }}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -33,7 +34,13 @@ vars:
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-  dbt_acdc_demo:
+  dbt_demo_acdc:
+    staging:
+      materialized: view
+      +schema: staging
+    intermediate:
+      materialized: table
+      partitioned_by: ["release_version", "run_id"]
+      +schema: intermediate
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    

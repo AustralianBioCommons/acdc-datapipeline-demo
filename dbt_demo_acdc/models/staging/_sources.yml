@@ -7,9 +7,11 @@ sources:
     description: "Raw data from institute uploads, cataloged by AWS Glue."
     
     # IMPORTANT: This line maps your logical source name to the real Glue database
-    database: glue_db_acdc_dbt_test_raw 
-
+    database: AwsDataCatalog 
+    schema: glue_db_acdc_dbt_test_raw
     tables:
       # This MUST exactly match the table name in your Glue Catalog
       - name: patient_info 
         description: "Raw patient data with inconsistent sex column values."
+      - name: sample 
+        description: "Info about samples"
