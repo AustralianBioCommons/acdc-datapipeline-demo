@@ -10,7 +10,7 @@ with source as (
 
 ),
 
-with cleaned as (
+cleaned as (
 
     select
         sample_id,
@@ -23,7 +23,6 @@ with cleaned as (
         storage_date,
         '{{ var("release_version") }}' as release_version
     from {{ ref('stg_sample_raw') }}
-)
 )
 
 -- This selects the final, cleaned data to be saved.
